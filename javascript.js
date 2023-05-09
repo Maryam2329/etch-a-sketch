@@ -1,6 +1,7 @@
 
 
 let etchASketch = function (gridsize){
+    let opacity = 0;
     const container = document.querySelector('body');
     // start the creation of the grid
     const content = document.createElement('div');
@@ -19,7 +20,7 @@ let etchASketch = function (gridsize){
         for(j=1;j<gridsize;j++){
             const content_element = document.createElement('div');
             content_element.textContent = 'Grid element C'+i+'L'+j;
-            content_element.style.cssText = 'color: orange; background: purple;';
+            content_element.style.cssText = 'color: orange; background: white;';
             content_element.style.border="thick solid orange";
             content_element.style.display='flex';
             content_element.style.flexDirection='column';
@@ -28,7 +29,13 @@ let etchASketch = function (gridsize){
                 content_element.style.border="thick solid orange";
             });
             content_element.addEventListener("mouseout", () => {
-                content_element.style.cssText = 'color: orange; background: purple;';
+                // version with initial color
+                content_element.style.cssText = 'color: orange; background: white';
+                /*
+                //version with random background color
+                var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                content_element.style.cssText = 'color: orange; background: #'+randomColor;
+                */
                 content_element.style.border="thick solid orange";
             });
             content_column.appendChild(content_element);
